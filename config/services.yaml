@@ -22,3 +22,13 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Service\GetCapitalServiceInterface:
+        alias: App\Service\GetCapitalService
+
+    App\Service\GetCapitalWithCacheService:
+        decorates: App\Service\GetCapitalService
+        decoration_priority: 1
+
+    App\Service\GetCapitalWithLoggerService:
+        decorates: App\Service\GetCapitalService
+        decoration_priority: 2
